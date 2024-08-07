@@ -1,4 +1,4 @@
-package xyz.thomas.highlight;
+package xyz.thomaslau.highlight;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;

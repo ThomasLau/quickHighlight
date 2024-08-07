@@ -1,18 +1,18 @@
-package org.ugc.springtool;
+package xyz.thomaslau.highlight;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-public class AcAuto {
+
+public class AcAuto_Bugii {
     private static final int BYTE_SIZE = Byte.MAX_VALUE - Byte.MIN_VALUE + 1;
     private final AcNode root = new AcNode();
     private final ArrayList<AcNode> nodes = new ArrayList<>();
     private int[] fail;
 
-    public AcAuto() {
+    public AcAuto_Bugii() {
         nodes.add(root);
     }
 
@@ -116,22 +116,18 @@ public class AcAuto {
                 i++;
                 continue;
             }
-            // 失配
             if (pIndex == 0) {
-                // 只有根节点就失败时，才代表当前字符完全无法匹配，继续下一个字符
-                // 否则应该从失败指针处再次查找当前字符
                 i++;
             }
             pIndex = fail[pIndex];
         }
     }
+
     public static void main(String[] args) {
-        String text = "形态什么？学习 lgbt？还是学习快乐教育？不知道江泽民怎么看习近平易近人是不是";
-        List<String> keywords = Arrays.asList("习", "lgbt", "江泽民", "江", "习近平", "平易");
-        AcAuto aac = new AcAuto();
-        keywords.forEach(key->aac.insert(key));
+        AcAuto_Bugii aac = new AcAuto_Bugii();
+        Utils.keywords.forEach(key -> aac.insert(key));
         aac.calcFail();
-        aac.match(text, s->{
+        aac.match(Utils.text, s -> {
             System.out.println(String.format("%s", s));
         });
     }

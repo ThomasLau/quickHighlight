@@ -1,4 +1,4 @@
-package org.ugc.springtool;
+package xyz.thomaslau.highlight;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map.Entry;
 
-public class AhoCorasickAutomation {
+public class AhoCorasickAuto_AsciiOnly {
     /*本示例中的AC自动机只处理英文类型的字符串，所以数组的长度是128*/
     private static final int ASCII = 128;
 
@@ -38,7 +38,7 @@ public class AhoCorasickAutomation {
     }
 
     /*target表示待查找的目标字符串集合*/
-    public AhoCorasickAutomation(List<String> target) {
+    public AhoCorasickAuto_AsciiOnly(List<String> target) {
         root = new Node();
         this.target = target;
         buildTrieTree();
@@ -161,25 +161,23 @@ public class AhoCorasickAutomation {
 
         String text = "bcabcdebcedfabcdefababkabhabk";
 
-        AhoCorasickAutomation aca = new AhoCorasickAutomation(target);
+        AhoCorasickAuto_AsciiOnly aca = new AhoCorasickAuto_AsciiOnly(target);
         HashMap<String, List<Integer>> result = aca.find(text);
 
         System.out.println(text);
         for (Entry<String, List<Integer>> entry : result.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
-        
-        // String content = "形态什么？学习 lgbt？还是学习快乐教育？不知道江泽民怎么看习近平易近人是不是";
-        // List<String> keywords = Arrays.asList("习", "lgbt", "江泽民", "江", "习近平", "平易");
+
         String content = "bcabcdebcedfabcdefababkabhabkbcabcdebcedfabcdefababkabhabk";
         List<String> keywords = target;
-        AhoCorasickAutomation acautoX = new AhoCorasickAutomation(keywords);
+        AhoCorasickAuto_AsciiOnly acautoX = new AhoCorasickAuto_AsciiOnly(keywords);
         HashMap<String, List<Integer>> resultXX = acautoX.find(content);
         System.out.println(resultXX);
         
         long start = System.currentTimeMillis();
         for (int i = 0; i < 100000; i++) {
-            AhoCorasickAutomation acauto = new AhoCorasickAutomation(keywords);
+            AhoCorasickAuto_AsciiOnly acauto = new AhoCorasickAuto_AsciiOnly(keywords);
             HashMap<String, List<Integer>> resultX = acauto.find(content);
         }
         long end = System.currentTimeMillis();

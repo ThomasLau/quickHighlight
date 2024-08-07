@@ -1,4 +1,4 @@
-package org.ugc.springtool;
+package xyz.thomaslau.highlight;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

@@ -38,6 +38,31 @@
 			<version>1.7.36</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-highlighter</artifactId>
+			<version>8.3.0</version>
+			<scope>test</scope>
+			<exclusions>
+				<!-- <exclusion> <groupId>org.apache.lucene</groupId>
+				<artifactId>lucene-core</artifactId> 
+					</exclusion> -->
+				<exclusion>
+					<groupId>org.apache.lucene</groupId>
+					<artifactId>lucene-memory</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.lucene</groupId>
+					<artifactId>lucene-queries</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-analyzers-common</artifactId>
+			<version>8.3.0</version>
+			<scope>test</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>com.alibaba.fastjson2</groupId>
@@ -84,6 +109,10 @@
 				<exclusion>
 					<groupId>ch.qos.logback</groupId>
 					<artifactId>logback-classic</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-to-slf4j</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>

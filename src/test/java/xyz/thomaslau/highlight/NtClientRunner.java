@@ -1,4 +1,4 @@
-package xyz.thomas.highlight;
+package xyz.thomaslau.highlight;
 
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
